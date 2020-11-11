@@ -1,4 +1,14 @@
 width 411
 heigth 823
 
+warna #40BFFF
+
 https://www.npmjs.com/package/react-native-flatlist-slider
+
+anak 2 pake nama
+sisanya sgs pln
+
+
+8L 6 logo kai sisanya sgs pln
+2M
+2S

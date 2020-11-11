@@ -1,13 +1,12 @@
 import React from 'react'
-import { Dimensions, ScrollView, StyleSheet, View, Text } from 'react-native'
-import { ILCat1, ILCat2, ILCat3, ILCat4 } from '../../assets'
-import { Button, Category, Search, SliderImage } from '../../components'
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Button, Category, Gap, ProductItem, Search, SliderImage } from '../../components'
 import { colors, fonts } from '../../utils'
 
 const Home = () => {
     return (
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.wrapperSearch}>
                     <View style={styles.search}>
                         <Search placeholder='Cari item' />
@@ -20,16 +19,38 @@ const Home = () => {
                     <SliderImage />
                 </View>
                 <View style={styles.wrapperTitle}>
-                    <Text style={styles.title}>Category</Text>
+                    <Text style={styles.title}>Categories</Text>
                 </View>
-                <View style={styles.wrapperCategory}>
-                    <Category img={ILCat1} title='Aksesoris'/>
-                    <Category img={ILCat2} title='Jaket'/>
+                <Gap height={20} />
+                <View style={styles.wrapperScroll}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                        <View style={styles.categories}>
+                            <Gap width={40} />
+                            <Category cat='Tshirt' title='Tshirt' />
+                            <Category cat='Shirt' title='Shirt'/>
+                            <Category cat='Hoodie' title='Hoodie'/>
+                            <Category cat='Pants' title='Pants'/>
+                            <Category cat='Accesories' title='Accesories'/>
+                            <Gap width={20} />
+                        </View>
+                    </ScrollView>
                 </View>
-                <View style={styles.wrapperCategory}>
-                    <Category img={ILCat3} title='Celana'/>
-                    <Category img={ILCat4} title='Kaos' />
+                <View style={styles.wrapperTitle}>
+                    <Text style={styles.title}>All Product</Text>
                 </View>
+                <View style={styles.product}>
+                    <ProductItem />
+                    <ProductItem />
+                </View>
+                <View style={styles.product}>
+                    <ProductItem />
+                    <ProductItem />
+                </View>
+                <View style={styles.product}>
+                    <ProductItem />
+                    <ProductItem />
+                </View>
+                <Gap height={20} />
             </ScrollView>
         </View>
     )
@@ -47,7 +68,7 @@ const styles = StyleSheet.create({
     },
     wrapperSearch: {
         flexDirection: 'row',
-        paddingHorizontal: 30,
+        paddingHorizontal: windowWidth * 0.048,
         marginTop: windowHeight * 0.036,
         alignItems: 'center',
         paddingBottom: 10,
@@ -60,18 +81,26 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     wrapperSlider: {
-        marginTop: windowHeight * 0.024
+        marginTop: windowHeight * 0.024,
     },
     wrapperTitle: {
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
         marginTop: windowHeight * 0.024,
     },
     title: {
         fontSize: 18,
-        fontFamily: fonts.primary[700]
+        fontFamily: fonts.primary[600]
     },
-    wrapperCategory: {
-        flexDirection:'row',
-        paddingHorizontal: 30
+    wrapperScroll: {
+        marginHorizontal: -20
+    },
+    categories: {
+        flexDirection: 'row'
+    },
+    product: {
+        flexDirection: 'row',
+        marginTop: 20,
+        paddingHorizontal: windowWidth * 0.048,
+        justifyContent: 'space-between'
     }
 })

@@ -1,13 +1,26 @@
 import React from 'react'
-import { Dimensions, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { ILCat1, ILCat2, ILCat3, ILCat4 } from '../../../assets'
+import { Dimensions, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { IcHoodie, IcPants, IcShirt, IcTshirt, IcWallet } from '../../../assets'
 import { colors, fonts } from '../../../utils'
 
-const Category = ({img, title}) => {
+const Category = ({cat, title}) => {
+    const Icon = () => {
+        if(cat === 'Tshirt') return <IcTshirt />
+
+        if(cat === 'Shirt') return <IcShirt />
+
+        if(cat === 'Hoodie') return <IcHoodie />
+
+        if(cat === 'Pants') return <IcPants />
+
+        if(cat === 'Accesories') return <IcWallet />
+
+        return <IcTshirt />
+    }
     return (
         <TouchableOpacity style={styles.container}>
-            <Image source={img} style={styles.image} />
-            <Text style={styles.text}>{title}</Text>
+            <Icon />
+            <Text style={styles.title}>{title}</Text>
         </TouchableOpacity>
     )
 }
@@ -19,21 +32,18 @@ const windowWidth = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
     container: {
-       width: '50%',
-       backgroundColor: 'rgba(0,0,0, 0.3)',
-       alignItems: 'center',
-       justifyContent: 'center'
+        backgroundColor: colors.border,
+        height: windowHeight *  0.091,
+        width: windowWidth * 0.182,
+        borderRadius:10,
+        marginRight: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 10
     },
-    image: {
-       height: windowHeight * 0.18,
-       width: windowWidth * 0.36,
-       resizeMode: 'contain',
-    },
-    text: {
-        fontSize: 20,
-        fontFamily: fonts.primary[800],
-        position: 'absolute',
-        top: 75,
-        color: colors.white
+    title: {
+        fontSize: 12,
+        fontFamily: fonts.primary[700],
+        textAlign: 'center'
     }
 })

@@ -8,6 +8,11 @@ import IcAccountActive from './ic-account-active.svg'
 import IcAccountInactive from './ic-account-inactive.svg'
 import IcArrowBack from './ic-arrow-back.svg'
 import IcSearch from './ic-search.svg'
+import IcHoodie from './ic-hoodie.svg'
+import IcPants from './ic-pants.svg'
+import IcShirt from './ic-shirts.svg'
+import IcTshirt from './ic-tshirt.svg'
+import IcWallet from './ic-wallet.svg'
 
 export {
     IcHomeActive,
@@ -19,5 +24,10 @@ export {
     IcAccountActive,
     IcAccountInactive,
     IcArrowBack,
-    IcSearch
+    IcSearch,
+    IcHoodie,
+    IcShirt,
+    IcTshirt,
+    IcWallet,
+    IcPants
 }
