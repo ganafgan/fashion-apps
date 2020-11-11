@@ -1,0 +1,4 @@
+width 411
+heigth 823
+
+https://www.npmjs.com/package/react-native-flatlist-slider
