@@ -1,16 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors, fonts } from '../../../utils'
+import GoogleBtn from './GoogleBtn'
 import IconOnly from './IconOnly'
 
-const Button = ({title, type, onPress, icon}) => {
+const Button = ({title, type, onPress, icon, mini}) => {
 
     if(type === 'icon-only'){
         return <IconOnly icon={icon} onPress={onPress} />
     }
+
+    if(type === 'google-btn'){
+        return <GoogleBtn onPress={onPress} />
+    } 
     return (
-        <TouchableOpacity onPress={onPress} style={styles.container(type)}>
-            <Text style={styles.title(type)}>{title}</Text>
+        <TouchableOpacity onPress={onPress} style={styles.container(type, mini)}>
+            <Text style={styles.title(type, mini)}>{title}</Text>
         </TouchableOpacity>
     )
 }
@@ -18,15 +23,18 @@ const Button = ({title, type, onPress, icon}) => {
 export default Button
 
 const styles = StyleSheet.create({
-    container: (type) => ({
+    container: (type, mini) => ({
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 15,
-        backgroundColor: type === 'primary' ? colors.black : colors.border
+        padding: mini ? 5 : 10,
+        backgroundColor: type === 'secondary' ? colors.white : colors.black,
+        borderWidth: type === 'secondary' ? 1 : 0,
+        borderColor: colors.black,
+        borderRadius: mini ? 5 : 10
     }),
-    title: (type) => ({
-        fontSize: 15,
-        color: type === 'primary' ? colors.white : colors.black,
-        fontFamily: fonts.primary[600]
+    title: (type, mini) => ({
+        fontSize: mini ? 12 : 14,
+        color: type === 'secondary' ? colors.black : colors.white,
+        fontFamily: fonts.primary[600],
     })
 })

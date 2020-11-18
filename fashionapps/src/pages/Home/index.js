@@ -1,9 +1,10 @@
 import React from 'react'
 import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ILProduct1, ILProduct2, ILProduct3, ILProduct4 } from '../../assets'
 import { Button, Category, Gap, ProductItem, Search, SliderImage } from '../../components'
-import { colors, fonts } from '../../utils'
+import { colors, dimension, fonts } from '../../utils'
 
-const Home = () => {
+const Home = ({navigation}) => {
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -11,7 +12,9 @@ const Home = () => {
                     <View style={styles.search}>
                         <Search placeholder='Cari item' />
                     </View>
-                    <View style={styles.wishlist}>
+                    <View style={styles.icon}>
+                        <Button type='icon-only' icon='search' />
+                        <Gap width={10} />
                         <Button type='icon-only' icon='wishlist'/>
                     </View>
                 </View>
@@ -21,17 +24,17 @@ const Home = () => {
                 <View style={styles.wrapperTitle}>
                     <Text style={styles.title}>Categories</Text>
                 </View>
-                <Gap height={20} />
+                <Gap height={10} />
                 <View style={styles.wrapperScroll}>
                     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                         <View style={styles.categories}>
-                            <Gap width={40} />
+                            <Gap width={dimension.width * 0.097} />
                             <Category cat='Tshirt' title='Tshirt' />
                             <Category cat='Shirt' title='Shirt'/>
                             <Category cat='Hoodie' title='Hoodie'/>
                             <Category cat='Pants' title='Pants'/>
                             <Category cat='Accesories' title='Accesories'/>
-                            <Gap width={20} />
+                            <Gap width={dimension.width * 0.048} />
                         </View>
                     </ScrollView>
                 </View>
@@ -39,16 +42,35 @@ const Home = () => {
                     <Text style={styles.title}>All Product</Text>
                 </View>
                 <View style={styles.product}>
-                    <ProductItem />
-                    <ProductItem />
-                </View>
-                <View style={styles.product}>
-                    <ProductItem />
-                    <ProductItem />
-                </View>
-                <View style={styles.product}>
-                    <ProductItem />
-                    <ProductItem />
+                    <ProductItem 
+                        img={ILProduct1} 
+                        title='Wild Journey about you and me'
+                        price='120.000'
+                        stock='Ada stock'
+                        onPress={() => navigation.navigate('ProductDetail')}
+                        
+                        />
+                    <ProductItem 
+                        img={ILProduct2} 
+                        title='Wild Journey'
+                        price='120.000'
+                        stock='Menipis'
+                        onPress={() => navigation.navigate('ProductDetail')}
+                        />
+                    <ProductItem 
+                        img={ILProduct3} 
+                        title='Wild Journey'
+                        price='120.000'
+                        stock='Menipis'
+                        onPress={() => navigation.navigate('ProductDetail')}
+                        />
+                    <ProductItem 
+                        img={ILProduct4} 
+                        title='Wild Journey'
+                        price='120.000'
+                        stock='Ada stock'
+                        onPress={() => navigation.navigate('ProductDetail')}
+                        />
                 </View>
                 <Gap height={20} />
             </ScrollView>
@@ -58,9 +80,6 @@ const Home = () => {
 
 export default Home
 
-const windowHeight = Dimensions.get('window').height
-const windowWidth = Dimensions.get('window').width
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -68,8 +87,8 @@ const styles = StyleSheet.create({
     },
     wrapperSearch: {
         flexDirection: 'row',
-        paddingHorizontal: windowWidth * 0.048,
-        marginTop: windowHeight * 0.036,
+        paddingHorizontal: dimension.width * 0.024,
+        marginTop: dimension.height * 0.036,
         alignItems: 'center',
         paddingBottom: 10,
         borderBottomWidth: 1,
@@ -80,27 +99,32 @@ const styles = StyleSheet.create({
         flex: 1,
         marginRight: 10
     },
+    icon: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
     wrapperSlider: {
-        marginTop: windowHeight * 0.024,
+        marginTop: dimension.height * 0.024,
     },
     wrapperTitle: {
-        paddingHorizontal: 20,
-        marginTop: windowHeight * 0.024,
+        paddingHorizontal: dimension.width * 0.048,
+        marginTop: dimension.height * 0.024,
     },
     title: {
-        fontSize: 18,
-        fontFamily: fonts.primary[600]
+        fontSize: 16,
+        fontFamily: fonts.primary[700]
     },
     wrapperScroll: {
-        marginHorizontal: -20
+        marginHorizontal: -dimension.width * 0.048
     },
     categories: {
         flexDirection: 'row'
     },
     product: {
         flexDirection: 'row',
-        marginTop: 20,
-        paddingHorizontal: windowWidth * 0.048,
-        justifyContent: 'space-between'
+        marginTop: 10,
+        paddingHorizontal: dimension.width * 0.048,
+        justifyContent: 'space-between',
+        flexWrap: 'wrap'
     }
 })

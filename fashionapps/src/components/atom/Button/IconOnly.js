@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
-import { IcArrowBack, IcSearch, IcWishlistActive } from '../../../assets'
+import { IcArrowBack, IcCartActive, IcMinus, IcPlus, IcSearch, IcTrash, IcWishlistActive } from '../../../assets'
 
 const IconOnly = ({onPress, icon}) => {
     const Icon = () => {
@@ -13,6 +13,18 @@ const IconOnly = ({onPress, icon}) => {
         if(icon === 'search'){
             return <IcSearch />
         }
+        if(icon === 'trash'){
+            return <IcTrash />
+        }
+        if(icon === 'chart'){
+            return <IcCartActive />
+        }
+        if(icon == 'plus'){
+            return <IcPlus />
+        }
+        if(icon === 'minus'){
+            return <IcMinus />
+        } 
         return <IcWishlistActive />
     }
     return (

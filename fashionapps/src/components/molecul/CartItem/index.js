@@ -1,0 +1,95 @@
+import React from 'react'
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { colors, dimension, fonts } from '../../../utils'
+import { Button, Gap } from '../../atom'
+
+const CartItem = ({onPress, img, qty, onPressMinus, onPressPlus, catatan}) => {
+    return (
+        <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={1}>
+            <View style={styles.wrapperProduct}>
+                <Image source={img} style={styles.img}/>
+                <View style={styles.wrapperTitle}>
+                    <Text style={styles.title}>Tshirt Shogunate</Text>
+                    <Gap height={dimension.height * 0.006} />
+                    <Text style={styles.type}>Warna hitam</Text>
+                    <Gap height={dimension.height * 0.006} />
+                    <Text style={styles.type}>Size S</Text>
+                    <Gap height={dimension.height * 0.006} />
+                    <Text style={styles.price}>Rp. 120.000</Text>
+                    <Gap height={dimension.height * 0.024} />
+                    <View style={styles.wrapperButton}>
+                        <Button type='icon-only' icon='trash' />
+                        <View style={styles.wrapperPlusMinus}>
+                            <Button type='icon-only' icon='minus' onPress={onPressMinus} />
+                            <Text style={styles.qty}>{qty}</Text>
+                            <Button type='icon-only' icon='plus' onPress={onPressPlus} />
+                        </View>   
+                    </View>
+                    <TextInput 
+                        placeholder='Catatan'
+                        value={catatan}
+                    />
+                </View>
+            </View>
+        </TouchableOpacity>
+    )
+}
+
+export default CartItem
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: colors.white,
+        padding: 10,
+        borderRadius: 10,
+        marginBottom: dimension.height * 0.024,
+        borderWidth: 1,
+        borderColor: colors.border
+    },
+    wrapperProduct: {
+        flexDirection: 'row'
+    },
+    img: {
+        height: dimension.height * 0.24,
+        width: dimension.width * 0.425,
+        resizeMode: 'cover',
+        marginRight: 10
+    },
+    wrapperTitle: {
+        paddingTop : dimension.height * 0.024,
+        flex: 1
+    },
+    title: {
+        fontSize: 14,
+        fontFamily: fonts.primary[600],
+        color: colors.black
+    },
+    price: {
+        fontSize: 14,
+        fontFamily: fonts.primary[900],
+        color: colors.black
+    },
+    type: {
+        fontSize: 14,
+        fontFamily: fonts.primary[600],
+        color: colors.black
+    },
+    wrapperButton: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    wrapperChartButton: {
+        flex: 1,
+        marginLeft: 10
+    },
+    qty: {
+        fontSize: 14,
+        fontFamily: fonts.primary[900]
+    },
+    wrapperPlusMinus: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between', 
+        marginLeft: dimension.width * 0.048
+    }
+})

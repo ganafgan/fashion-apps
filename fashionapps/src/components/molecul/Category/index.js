@@ -2,8 +2,9 @@ import React from 'react'
 import { Dimensions, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { IcHoodie, IcPants, IcShirt, IcTshirt, IcWallet } from '../../../assets'
 import { colors, fonts } from '../../../utils'
+import SizeCategory from './SizeCategory'
 
-const Category = ({cat, title}) => {
+const Category = ({cat, title, onPress, size, active}) => {
     const Icon = () => {
         if(cat === 'Tshirt') return <IcTshirt />
 
@@ -17,8 +18,12 @@ const Category = ({cat, title}) => {
 
         return <IcTshirt />
     }
+    if(cat === 'Size'){
+        return <SizeCategory size={size} onPress={onPress} active={active} />
+    }
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
+            {!cat === 'size'}
             <Icon />
             <Text style={styles.title}>{title}</Text>
         </TouchableOpacity>

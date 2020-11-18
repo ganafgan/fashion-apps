@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import { ILLogo } from '../../assets'
+import { dimension } from '../../utils'
 
 const Splash = ({navigation}) => {
 
@@ -19,9 +20,6 @@ const Splash = ({navigation}) => {
 
 export default Splash
 
-const windowHeight =  Dimensions.get('window').height
-const windowWidth = Dimensions.get('window').width
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -30,7 +28,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     logo: {
-        width: windowWidth * 0.54,
-        height: windowHeight * 0.184
+        width: dimension.width * 0.54,
+        height: dimension.height * 0.184
     }
 })

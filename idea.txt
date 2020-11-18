@@ -2,6 +2,7 @@ width 411
 heigth 823
 
 warna #40BFFF
+#4484e9
 
 https://www.npmjs.com/package/react-native-flatlist-slider
 

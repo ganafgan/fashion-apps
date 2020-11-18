@@ -13,6 +13,9 @@ import IcPants from './ic-pants.svg'
 import IcShirt from './ic-shirts.svg'
 import IcTshirt from './ic-tshirt.svg'
 import IcWallet from './ic-wallet.svg'
+import IcTrash from './ic-trash.svg'
+import IcPlus from './ic-plus.svg'
+import IcMinus from './ic-minus.svg'
 
 export {
     IcHomeActive,
@@ -29,5 +32,8 @@ export {
     IcShirt,
     IcTshirt,
     IcWallet,
-    IcPants
+    IcPants,
+    IcTrash,
+    IcMinus,
+    IcPlus
 }

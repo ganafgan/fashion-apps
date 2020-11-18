@@ -19,21 +19,22 @@ const SliderImage = () => {
             desc: 'Mailo Ltd'
         }
     ]
+
+    
     return (
-        <View>
-            <FlatListSlider 
-                 data={images}
-                 height={windowHeight * 0.26}
-                 timer={3000}
-                 onPress={item => alert(JSON.stringify(item))}
-                 contentContainerStyle={{paddingHorizontal: 0}}
-                 indicatorContainerStyle={{position:'absolute', bottom: 20}}
-                 indicatorActiveColor={'#000000'}
-                 indicatorInActiveColor={'#ffffff'}
-                 indicatorActiveWidth={30}
-                 animation
-            />
-        </View>
+        <FlatListSlider 
+                data={images}
+                height={windowHeight * 0.26}
+                timer={3000}
+                onPress={() => null}
+                contentContainerStyle={{paddingHorizontal: 0}}
+                indicatorContainerStyle={{position:'absolute', bottom: 20}}
+                indicatorActiveColor={'#000000'}
+                indicatorInActiveColor={'#ffffff'}
+                indicatorActiveWidth={30}
+                animation
+        />
+        
     )
 }
 

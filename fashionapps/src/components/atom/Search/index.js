@@ -1,18 +1,16 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
 import { colors, fonts } from '../../../utils'
-import { Button } from '../../atom'
 
 const Search = ({value, onChangeText, placeholder}) => {
     return (
         <View style={styles.container}>
             <TextInput 
+                style={styles.search}
                 value={value}
                 onChangeText={onChangeText} 
-                style={styles.search}
                 placeholder={placeholder}
             />
-             <Button type='icon-only' icon='search' />
         </View>
     )
 }
@@ -24,7 +22,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.border,
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
+        borderRadius: 10
 
     },
     search: {
